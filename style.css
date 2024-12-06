@@ -13,5 +13,65 @@ body,
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
 }
 
+.app {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.start-screen {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.training-screen {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.answers-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.button {
+  padding: 10px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.answer-button {
+  width: 100%;
+}
+
+.answer-button:hover {
+  background-color: darkgray;
+}
+
+.start-button {
+  border: 1px solid orange;
+  background-color: orange;
+}
+
+.start-button:hover {
+  border: 1px solid darkgoldenrod;
+}
+
+.quit-button {
+  border: 1px solid darkred;
+  background-color: red;
+}
+
+.quit-button:hover {
+  background-color: darkred;
+  color: white;
+}

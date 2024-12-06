@@ -1,17 +1,19 @@
 import { Answers } from "./Answers/Answers.js";
-import { ExitButton } from "./ExitButton/ExitButton.js";
+import { QuitButton } from "./QuitButton/QuitButton.js";
 import { Notifications } from "./Notifications/Notifications.js";
 import { Order } from "./Order/Order.js";
+import { OrderHeading } from "./OrderHeading/OrderHeading.js";
 
 export function TrainingScreen() {
   const element = document.createElement('section');
   element.className = 'training-screen';
 
   element.append(
-    ExitButton(),
+    OrderHeading(),
     Order(),
-    Answers(),
     Notifications(),
+    Answers(),
+    QuitButton(),
   );
 
   return element;

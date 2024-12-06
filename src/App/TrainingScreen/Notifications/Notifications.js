@@ -11,11 +11,10 @@ export function Notifications() {
 
   subscribe(EVENTS.QUESTION_CREATED, () => {
     Notifications.render(element, 
-      { message: ''}
+      { message: 'Выберите вариант ответа:'}
     );
   })
 
-  Notifications.render(element, { message: ''} );
   return element;
 }
 
