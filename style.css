@@ -33,6 +33,13 @@ body,
   display: flex;
   gap: 10px;
   flex-direction: column;
+  padding: 10px 0;
+  min-width: 250px;
+}
+
+.order {
+  flex-grow: 1;
+  list-style-type: none;
 }
 
 .answers-list {

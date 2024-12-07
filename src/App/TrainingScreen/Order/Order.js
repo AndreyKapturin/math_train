@@ -3,6 +3,8 @@ import { OrderPosition } from "./OrderPosition/OrderPosition.js";
 
 export function Order() {
   const element = document.createElement('ul');
+  element.className = 'order';
+  
   let unsubscribe = subscribe(EVENTS.QUESTION_CREATED, (payload) => {
     Order.render(element, { order: payload.currentOrder });
   });
