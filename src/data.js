@@ -150,11 +150,12 @@ function _getGoods() {
 
 function _createOrder() {
   const goodsCountRange = _getGoodsCountRange();
-  const orderPositionsCountRange = _getOrderPositionsCountRange();
+  const { min, max } = _getOrderPositionsCountRange();
+  const orderPositionsCount = _getRandomIntegerFromRange(min, max);
 
   const order = [];
 
-  for (let i = 0; i < orderPositionsCountRange.max; i++) {
+  for (let i = 0; i < orderPositionsCount; i++) {
     let flag = true;
     let randomGoods = null;
     
@@ -183,7 +184,7 @@ function _getRandomGoods() {
 }
 
 function _getRandomIntegerFromRange(min, max) {
-  return Math.floor(Math.random() * (max - min) + 1)
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function _createQuestion() {
@@ -223,10 +224,16 @@ function _createAnswerOptions(order) {
 
     while(flag) {
       defacedAnswer = _getDefacedAnswer(correctAnswer);
-      flag = answerOptions.includes(defacedAnswer);
+      flag = _checkInvalidDefacedAnswer(answerOptions, defacedAnswer);
     }
 
     answerOptions.push( defacedAnswer );
+  }
+
+  function _checkInvalidDefacedAnswer(answerOptions, defacedAnswer) {
+    const hasBeenAdded = answerOptions.includes(defacedAnswer);
+    const isOutOfRange = defacedAnswer <= 0;
+    return hasBeenAdded || isOutOfRange;
   }
 
   const randomIndex = _getRandomIntegerFromRange(0, answerOptions.length - 1);
